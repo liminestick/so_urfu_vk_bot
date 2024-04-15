@@ -11,7 +11,7 @@
    ```
 2. Склонируйте репозиторий:
 ```
-git clone https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git
+git clone https://github.com/liminestick/so_urfu_vk_bot.git
 ```
 
 3. Создайте файл token.txt и поместите в него токен вашего сообщества VK.
