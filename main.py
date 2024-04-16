@@ -19,7 +19,7 @@ class VKBotInterface():
         self.log_text = scrolledtext.ScrolledText(master, width=50, height=10)
         self.log_text.pack()
 
-        button_width = 20  # Устанавливаем одинаковую ширину для кнопок
+        button_width = 20
 
         self.start_button = tk.Button(master, text="Start Bot", command=self.start_bot, width=button_width)
         self.start_button.pack()
@@ -135,8 +135,8 @@ class VKBotInterface():
 
                         send_message(vk, event.user_id, question_text, keyboard)
                     elif user_data['process'] == 'Finished':
-                        send_message(vk, event.user_id,
-                                     "Ты уже ответил на все вопросы викторины! Чтобы узнать итоги розыгрыша, приходи на АгитБригады 27 апреля. Ждём тебя 😉")
+                        goodbye_message = get_text_goodbye()
+                        send_message(vk, event.user_id, goodbye_message)
                     elif 'привет' in event.text.lower() or 'начать' in event.text.lower():
                         keyboard = create_keyboard(
                             [[{"action": {"type": "text", "payload": "{}", "label": "Начать викторину"}}]],
@@ -190,6 +190,10 @@ def create_keyboard(buttons, color="primary"):
 
 def get_text_hello():
     with open("HelloMessage.txt", "r", encoding='utf-8') as file:
+        return file.read().strip()
+
+def get_text_goodbye():
+    with open("GoodbyeMessage.txt", "r", encoding='utf-8') as file:
         return file.read().strip()
 
 def get_token_from_file():
