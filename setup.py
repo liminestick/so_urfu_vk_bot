@@ -9,7 +9,7 @@ executables = [
 # Настройки для cx_Freeze
 build_exe_options = {
     'packages': ['tkinter', 'vk_api', 'json', 'time', 'datetime'],
-    'include_files': ['HelloMessage.txt', 'question.json', 'token.txt', 'users.json', 'finished.txt']
+    'include_files': ['HelloMessage.txt', 'GoodbyeMessage.txt', 'question.json', 'token.txt', 'users.json', 'finished.txt']
 }
 
 # Информация об авторе
